@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "server.datasource.dbcp2.driver-class-name",
+  "type": "java.lang.String",
+  "description": "A description for 'server.datasource.dbcp2.driver-class-name'"
+}]}
