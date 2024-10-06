@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
-import br.com.springjonatas.model.date.mapstruct.v2.PersonMapStructV2;
 import br.com.springjonatas.services.PersonServices;
 
 @RestController
@@ -43,19 +41,6 @@ public class PersonController {
 	public PersonMapStruct create(@RequestBody PersonMapStruct PersonMapper) {
 
 		return service.create(PersonMapper);
-	}
-
-	@PostMapping(value = "/v2", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonMapStructV2 createV2(@RequestBody PersonMapStructV2 PersonMapper) {
-		
-		return service.createV2(PersonMapper);
-	}
-
-	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonMapStruct update(@RequestBody PersonMapStruct PersonMapper) {
-
-		return service.update(PersonMapper);
-
 	}
 
 	@DeleteMapping(value = "/{id}")

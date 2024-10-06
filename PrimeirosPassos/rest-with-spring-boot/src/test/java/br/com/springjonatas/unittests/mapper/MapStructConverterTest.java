@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
-import br.com.springjonatas.mapper.interfaces.PersonMapper;
+import br.com.springjonatas.interfaces.mapper.PersonMapper;
 import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
 import br.com.springjonatas.model.entity.PersonEntity;
 import br.com.springjonatas.unittests.mapper.mocks.MockPerson;

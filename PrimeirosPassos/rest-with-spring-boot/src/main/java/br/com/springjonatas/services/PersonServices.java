@@ -6,10 +6,8 @@ import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
 
 import br.com.springjonatas.exception.ResourceNotFoundException;
-import br.com.springjonatas.mapper.interfaces.PersonMapper;
-import br.com.springjonatas.mapper.interfaces.PersonMapperV2;
+import br.com.springjonatas.interfaces.mapper.PersonMapper;
 import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
-import br.com.springjonatas.model.date.mapstruct.v2.PersonMapStructV2;
 import br.com.springjonatas.repositories.PersonRepository;
 
 @Service
@@ -19,12 +17,10 @@ public class PersonServices {
 
 	private final PersonRepository repository;
 	private final PersonMapper personMapper;
-	private final PersonMapperV2 personMapperV2;
 	
-	public PersonServices(PersonRepository repository, PersonMapper personMapper,  PersonMapperV2 personMapperV2) {
+	public PersonServices(PersonRepository repository, PersonMapper personMapper) {
         this.repository = repository;
         this.personMapper = personMapper;
-        this.personMapperV2 = personMapperV2;
     }
 
 	public List<PersonMapStruct> findAll() {
@@ -54,16 +50,6 @@ public class PersonServices {
 		return mapper;
 	}
 	
-	public PersonMapStructV2 createV2(PersonMapStructV2 personMapV2) {
-
-		logger.info("Creating one PersonMapStruct with V2!");
-
-		var entity = personMapperV2.toPerson(personMapV2);
-		var mapper = personMapperV2.toPersonMap(repository.save(entity));
-
-		return mapper;
-	}
-
 	public PersonMapStruct update(PersonMapStruct personMap) {
 
 		logger.info("Updating one PersonMapStruct");
